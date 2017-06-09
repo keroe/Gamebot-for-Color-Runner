@@ -9,11 +9,7 @@ LEVEL_WIN_MESSAGE = 'win'
 LEVEL = 1 # current level being played
 
 GAME_REGION = () # (left, top, width, height) values coordinates of the game window
-class Field:
-    def __init__(self, posAbs, posRel, color=None):
-        self.posAbs = posAbs
-        self.posRel = posRel
-        self.color = color
+
 
 
 def main():
@@ -136,20 +132,25 @@ def debugClickAllField():
       time.sleep(1)
 
 def startPlaying():
-  getColorsOfFields()
-  #findSingleField()
+  getFieldColor()
+  findSingleField()
   #clickField()
 
-def getColorsOfFields():
+def getFieldColor():
   im = pyautogui.screenshot(region=GAME_REGION)
+  colorList = []
   for key, value in FIELDS.items():
       value['color'] = im.getpixel(value['pos_rel'])
       logging.debug('Got the color for the field' )
-
+      logging.debug(value['color'])
+  logging.debug(colorList)
 
 def findSingleField():
-  tmp1 =
-#def clickField():
+    for key, value in FIELDS.items():
+        n = su
+
+def clickField(pos):
+    pyautogui.click(pos)
 
 
 if __name__ == '__main__':
