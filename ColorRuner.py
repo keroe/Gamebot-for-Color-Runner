@@ -12,6 +12,7 @@ GAME_REGION = () # (left, top, width, height) values coordinates of the game win
 
 
 
+
 def main():
     """Runs the bot. It should be started in the beginning menu. It will select mode Fast 50."""
     logging.debug('Program Started. Press Ctrl-C to abort at any time.')
@@ -66,7 +67,7 @@ def navigateStartGameMenu():
 
     # click on Continue
     pos_x = GAME_REGION[0] + 310 # 310 x in the starting menu
-    pos_y = GAME_REGION[1] + 370 # 380 y in the starting menu
+    pos_y = GAME_REGION[1] + 380 # 380 y in the starting menu
     pyautogui.moveTo(pos_x, pos_y, duration=1)
     while True:
         checkSucces = pyautogui.locateOnScreen(shortPath('ready.png'),region = GAME_REGION)
@@ -102,26 +103,25 @@ def setupCoordinates():
     global FIELDS
     # pos_abs is the absolute position of the field on your screen
     # pos_rel is the relative position of the field in the screenshot
-    FIELDS = {'f11': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + FieldMidY),'color': None}, #
-              'f12': {'pos_abs': (StartGameAreaX + FieldSizeX + FieldMidX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + FieldMidY), 'color': None},  ## Row 1
-              'f13': {'pos_abs': (StartGameAreaX + 2*FieldSizeX + FieldMidX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldMidY), 'color': None},  ##
-              'f14': {'pos_abs': (StartGameAreaX + 3*FieldSizeX + FieldMidX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldMidX, StartGameAreaYRel + FieldMidY),'color': None},
+    FIELDS = {'f11': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + FieldMidY),'color': None, 'amount': 1}, #
+              'f12': {'pos_abs': (StartGameAreaX + FieldMidX + FieldSizeX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + FieldMidY), 'color': None, 'amount': 1},  ## Row 1
+              'f13': {'pos_abs': (StartGameAreaX + FieldMidX + 2*FieldSizeX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldMidY), 'color': None, 'amount': 1},  ##
+              'f14': {'pos_abs': (StartGameAreaX + FieldMidX + 3*FieldSizeX, StartGameAreaY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldMidY),'color': None, 'amount': 1},
               #
-              'f21': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + FieldMidY),'color': None},
-              'f22': {'pos_abs': (StartGameAreaX + FieldSizeX + FieldMidX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None},  ## Row 2
-              'f23': {'pos_abs': (StartGameAreaX + 2*FieldSizeX + FieldMidX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None},
-              'f24': {'pos_abs': (StartGameAreaX + 3*FieldSizeX + FieldMidX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None},
+              'f21': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None, 'amount': 1},
+              'f22': {'pos_abs': (StartGameAreaX + FieldMidX + FieldSizeX , StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None, 'amount': 1},  ## Row 2
+              'f23': {'pos_abs': (StartGameAreaX + FieldMidX + 2*FieldSizeX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None, 'amount': 1},
+              'f24': {'pos_abs': (StartGameAreaX + FieldMidX + 3*FieldSizeX, StartGameAreaY + FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + FieldSizeY + FieldMidY),'color': None, 'amount': 1},
 
-              'f31': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None},
-              'f32': {'pos_abs': (StartGameAreaX + FieldSizeX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None}, ## Row 3
-              'f33': {'pos_abs': (StartGameAreaX + 2*FieldSizeX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None},
-              'f34': {'pos_abs': (StartGameAreaX + 3*FieldSizeX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None},
+              'f31': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None, 'amount': 1},
+              'f32': {'pos_abs': (StartGameAreaX + FieldSizeX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None, 'amount': 1}, ## Row 3
+              'f33': {'pos_abs': (StartGameAreaX + 2*FieldSizeX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None, 'amount': 1},
+              'f34': {'pos_abs': (StartGameAreaX + 3*FieldSizeX + FieldMidX, StartGameAreaY + 2*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + 2*FieldSizeY + FieldMidY),'color': None, 'amount': 1},
 
-              'f41': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None},
-              'f42': {'pos_abs': (StartGameAreaX + FieldSizeX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None}, ## Row 4
-              'f43': {'pos_abs': (StartGameAreaX + 2*FieldSizeX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None},
-              'f44': {'pos_abs': (StartGameAreaX + 3*FieldSizeX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None},}
-
+              'f41': {'pos_abs': (StartGameAreaX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None, 'amount': 1},
+              'f42': {'pos_abs': (StartGameAreaX + FieldSizeX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + FieldSizeX + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None, 'amount': 1}, ## Row 4
+              'f43': {'pos_abs': (StartGameAreaX + 2*FieldSizeX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 2*FieldSizeX + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None, 'amount': 1},
+              'f44': {'pos_abs': (StartGameAreaX + 3*FieldSizeX + FieldMidX, StartGameAreaY + 3*FieldSizeY + FieldMidY), 'pos_rel': (StartGameAreaXRel + 3*FieldSizeX + FieldMidX, StartGameAreaYRel + 3*FieldSizeY + FieldMidY),'color': None, 'amount': 1},}
 
     LEVEL = 1
 
@@ -132,25 +132,53 @@ def debugClickAllField():
       time.sleep(1)
 
 def startPlaying():
-  getFieldColor()
-  findSingleField()
-  #clickField()
+    while True:
+      getFieldColor()
+      getNumberOfColors()
+      clickField(findLowestValueField())
 
 def getFieldColor():
   im = pyautogui.screenshot(region=GAME_REGION)
-  colorList = []
   for key, value in FIELDS.items():
       value['color'] = im.getpixel(value['pos_rel'])
       logging.debug('Got the color for the field' )
       logging.debug(value['color'])
-  logging.debug(colorList)
 
-def findSingleField():
+
+def getNumberOfColors():
+    #init
     for key, value in FIELDS.items():
-        n = su
+        value['amount'] = 1
+
+    for key, value in FIELDS.items():
+      for arg, item in FIELDS.items():
+          if key != arg:
+              if value['color'] == item['color']:
+                  value['amount'] += 1
+    for key, value in FIELDS.items():
+        print(value['color'])
+        print(' kommt genau so oft vor in diesem Feld ', key)
+        print(value['amount'])
+
+
+def findLowestValueField():
+    buffer = 17
+    keyBuffer = ""
+    print('Buffer vor dem Anschauen:', buffer)
+    for key, value in FIELDS.items():
+        print('Schaue Feld an:', key)
+        if value['amount'] < buffer:
+            buffer = value['amount']
+            print('Die kleinste Anzahl ist im Feld:', key)
+            print('Mit dem Wert:', buffer)
+            keyBuffer = key
+    logging.debug('Ich werde dieses Feld drücken')
+    logging.debug(keyBuffer)
+    return FIELDS[keyBuffer]['pos_abs']
 
 def clickField(pos):
     pyautogui.click(pos)
+    time.sleep(0.5)
 
 
 if __name__ == '__main__':
